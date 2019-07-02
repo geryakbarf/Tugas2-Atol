@@ -62,10 +62,51 @@ if(!isset($_SESSION["tugasnip"]))
     <li><a href="#contact">Pegawai</a></li>
     <li style="float:right"><a href="logout.php">Keluar</a></li>
 </ul>
+<br><br>
+<center><h1>Daftar Obat</h1></center>
 
 <?php
+    $db=dbConnect();
+    if($db->connect_errno==0){
+        $sql=" SELECT obat.id, obat.nama_obat, kategori.nama_kate, obat.harga, obat.stok, pengguna.nama 
+        FROM obat JOIN kategori ON obat.kategori=kategori.id JOIN pengguna ON obat.pegawai=pengguna.nip";
+    }
+        $res=$db->query($sql);
+        if($res){
+            ?>
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Nama Obat</th>
+        <th>Kategori</th>
+        <th>Harga</th>
+        <th>Stok</th>
+        <th>Pegawai</th>
+    </tr>
+    <?php
+        $data=$res->fetch_all(MYSQLI_ASSOC);
+        foreach ($data as $barisdata){
+            ?>
+        <tr>
+            <td><?php echo $barisdata["id"];?></td>
+            <td><?php echo $barisdata["nama_obat"];?></td>
+            <td><?php echo $barisdata["nama_kate"];?></td>
+            <td><?php echo $barisdata["harga"];?></td>
+            <td><?php echo $barisdata["stok"];?></td>
+            <td><?php echo $barisdata["nama"];?></td>
+        </tr>
+    <?php
+        }
+        ?>
+</table>
+<?php
+            $res->free();
+    }else
+            echo "Gagal Eksekusi SQL".(DEVELOPMENT?" : ".$db->error:"")."<br>";
 
 ?>
+
+
 
 </body>
 </html>
