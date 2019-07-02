@@ -1,3 +1,8 @@
+<?php
+session_start();
+if(isset($_SESSION["tugasnip"]))
+    header("Location: https://tugas2.geryakbarf.xyz/php/admin-main.php");
+?>
 <?php include_once("php/function.php");?>
 <!DOCTYPE html>
 <html lang="en">

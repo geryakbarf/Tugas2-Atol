@@ -62,8 +62,13 @@ if(!isset($_SESSION["tugasnip"]))
     <li><a href="#contact">Pegawai</a></li>
     <li style="float:right"><a href="logout.php">Keluar</a></li>
 </ul>
-<br><br>
+<br>
+<form name="form" method="post" action="">
 <center><h1>Daftar Obat</h1></center>
+<center><input type="text" name="keyword" placeholder="Cari Obat" required>
+    <button type="submit" name="cari">Cari</button></center>
+<br>
+</form>
 
 <?php
     $db=dbConnect();
@@ -82,6 +87,7 @@ if(!isset($_SESSION["tugasnip"]))
         <th>Harga</th>
         <th>Stok</th>
         <th>Pegawai</th>
+        <th></th>
     </tr>
     <?php
         $data=$res->fetch_all(MYSQLI_ASSOC);
@@ -94,6 +100,7 @@ if(!isset($_SESSION["tugasnip"]))
             <td><?php echo $barisdata["harga"];?></td>
             <td><?php echo $barisdata["stok"];?></td>
             <td><?php echo $barisdata["nama"];?></td>
+            <td><a href="#"> Edit</a> | <a href="#"> Hapus </a> </td>
         </tr>
     <?php
         }
