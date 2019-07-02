@@ -63,7 +63,7 @@ if(!isset($_SESSION["tugasnip"]))
     <li style="float:right"><a href="logout.php">Keluar</a></li>
 </ul>
 <br>
-<form name="form" method="post" action="">
+<form name="form" method="post" action="admin-cari.php">
 <center><h1>Daftar Obat</h1></center>
 <center><input type="text" name="keyword" placeholder="Cari Obat" required>
     <button type="submit" name="cari">Cari</button></center>
