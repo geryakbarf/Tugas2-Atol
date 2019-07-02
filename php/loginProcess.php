@@ -14,7 +14,7 @@
                 $_SESSION["tugasnip"]=$data["nip"];
                 $_SESSION["tugasnama"]=$data["nama"];
                 $_SESSION["tugasusername"]=$data["username"];
-                echo "Sukses Login";
+                header("Location: https://tugas2.geryakbarf.xyz/php/admin-main.php");
             }
             else
                 header("Location: https://tugas2.geryakbarf.xyz/index.php?error=1");

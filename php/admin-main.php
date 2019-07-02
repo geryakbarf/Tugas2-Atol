@@ -1,3 +1,8 @@
+<?php
+session_start();
+if(!isset($_SESSION["tugasnip"]))
+    header("Location: https://tugas2.geryakbarf.xyz/index.php?error=4");
+?>
 <?php include_once("function.php");?>
 <html>
 <head>
@@ -55,7 +60,7 @@
     <li><a class="active" href="#home">Daftar Obat</a></li>
     <li><a href="#news">Kategori Obat</a></li>
     <li><a href="#contact">Pegawai</a></li>
-    <li style="float:right"><a href="#about">Keluar</a></li>
+    <li style="float:right"><a href="logout.php">Keluar</a></li>
 </ul>
 
 <?php
